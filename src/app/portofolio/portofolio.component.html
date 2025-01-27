@@ -1,0 +1,50 @@
+<div class="text-center mt-3">
+    <h2>Portfolio Component</h2>
+    <div class="d-flex align-items-center justify-content-center mt-3">
+      <div class="line me-3"></div>
+      <i class="fa-solid fa-star"></i>
+      <div class="line mx-3"></div>
+    </div>
+  </div>
+  
+  <div class="container py-5">
+    <div class="row">
+      @for (img of imgsrc; track $index) {
+        <div class="col-md-4 mt-4">
+          <div
+            (click)="openModal(img)"
+            class="image position-relative"
+            data-bs-toggle="modal"
+            data-bs-target="#portfolioModal"
+          >
+            <div class="layer position-absolute d-flex justify-content-center align-items-center">
+              <i class="fa-solid fa-plus fa-6x"></i>
+            </div>
+            <img [src]="img.src" [alt]="img.alt" class="w-100 rounded" />
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+  
+  <!-- Modal -->
+  <div
+    class="modal fade"
+    id="portfolioModal"
+    tabindex="-1"
+    aria-labelledby="portfolioModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog modal-dialog-centered modal-md">
+      <div class="modal-content">
+        <div class="modal-body p-0">
+          <!-- Modal Image -->
+          <img [src]="modelImg" [alt]="modelAlt" class="w-100" />
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
+
+
